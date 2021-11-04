@@ -52,25 +52,35 @@
             </div>
         </div>
 
-        <div class="page__row page__row_border">
-            <div class="page__col">
-                <div class="products__grid">
-                    <div class="products__item" @click="openMusicModal" v-if="!mobile">
-                        <div class="products__preview new"></div>
-                        <div class="products__details">
-                            <div class="products__title title">Добавить трек</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+     <div class="page__row page__row_border">
+      <div class="page__col">
+        <div class="products__grid">
+          <div class="products__item" @click="openMusicModal" v-if="!mobile">
+            <div class="products__details">
+              <div class="products__details title">
+                Загрузи свой первый трек
+              </div>
+              <p class="products__details text">
+                Твои будущие фанаты ждут! Жми<br />на кнопку «добавить трек» и
+                переходи<br />к продвижению прямо сейчас.
+              </p>
+              <button class="products__title">
+                <div class="products__preview new"></div>
+                <div class="products__title title">Добавить трек</div>
+              </button>              
+             </div>
+              <div class="products__details image"></div>
+          </div>
         </div>
+      </div>
+    </div>
 
         <b-modal id="music-modal" centered hide-footer>
             <div class="modal-center d-flex flex-column text-center mx-auto">
                 <div class="form-block">
-                    <input type="text" class="form-control" placeholder="Ссылка на звук в TikTok" v-model="val" required="" />
+                    <input type="text" class="form-control" placeholder="https://vm.tiktok.com/ZSJw9Jx1w" v-model="val" required="" />
                     <p class="form-tip text-danger" v-if="error" v-html="error" />
-                    <button class="btn btn-lg btn-primary btn-block my-4" @click="getMusic(val)" :disabled="!val" v-if="!waiting" v-html="val ? 'Найти трек' : 'Введите ссылку на трек'" />
+                    <button class="btn btn-lg btn-primary btn-block my-4" @click="getMusic(val)" :disabled="!val" v-if="!waiting" v-html="val ? 'Найти трек' : 'Добавить'" />
                     <div class="loading" :class="{active: waiting}" />
                     <p class="form-tip" v-if="waiting" v-html="'Ищем трек, это займет от 5 до 10 секунд'" />
                 </div>
